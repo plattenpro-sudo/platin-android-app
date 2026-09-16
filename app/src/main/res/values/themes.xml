@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.PlatinApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#0B6E4F</item>
+        <item name="colorPrimaryDark">#063F2D</item>
+        <item name="colorAccent">#2EE6A8</item>
+        <item name="android:windowBackground">#041D15</item>
+    </style>
+</resources>
