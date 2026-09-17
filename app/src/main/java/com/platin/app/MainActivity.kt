@@ -2,7 +2,9 @@ package com.platin.app
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.webkit.PermissionRequest
 import android.webkit.WebChromeClient
 import android.webkit.WebView
@@ -34,6 +36,13 @@ class MainActivity : AppCompatActivity() {
         webView.settings.databaseEnabled = true
         webView.settings.mediaPlaybackRequiresUserGesture = false
         webView.settings.cacheMode = android.webkit.WebSettings.LOAD_DEFAULT
+
+        // يفعّل تكامل الواجهة مع خدمة حفظ كلمات المرور في الجهاز (Google Autofill،
+        // أو أي تطبيق مدير كلمات مرور مثبَّت)، حتى يُعرَض على المستخدم خيار "حفظ كلمة المرور"
+        // تلقائياً بعد تسجيل الدخول، ويُعبَّأ الحقلان تلقائياً في المرات القادمة
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            webView.importantForAutofill = View.IMPORTANT_FOR_AUTOFILL_YES
+        }
 
         webView.webViewClient = WebViewClient()
 
